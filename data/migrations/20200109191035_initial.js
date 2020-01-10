@@ -34,6 +34,8 @@ exports.up = async (knex) => {
       .inTable("ingredients")
       .onDelete("CASCADE")
       .onUpdate("CASCADE")
+    table.integer("quantity")
+    table.primary(["recipe_id", "ingredient_id"])
   })
 }
 
