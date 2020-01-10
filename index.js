@@ -11,14 +11,17 @@ server.use(express.json())
 server.get("/", async (req, res, next) => {
   try {
     // get all recipes from the database
-    res.json({message: "this is working"})
+    res.json({ message: "this is working" })
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 server.use((err, req, res, next) => {
   console.log("Error:", err)
 
   res.status(500).json({
-    message: "Something went wrong",
+    message: "Something went wrong"
   })
 })
 
